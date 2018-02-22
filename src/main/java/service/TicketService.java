@@ -1,6 +1,7 @@
 package service;
 
 import model.TicketRequest;
+import model.TicketRequestQueue;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -9,33 +10,36 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class TicketService {
 
-    private Queue<TicketRequest> ticketRequests;
+    private static TicketService instance;
+    private static TicketRequestQueue requestQueue;
 
-    TicketService() {
-        ticketRequests = new LinkedBlockingQueue<TicketRequest>();
+    private TicketService() {}
+
+    public TicketService getInstance() {
+        if(instance == null) {
+            instance = new TicketService();
+        }
+        return instance;
     }
 
     public void makeTicketRequests(TicketRequest ... requests) {
         for(TicketRequest request : requests) {
-            ticketRequests.add(request);
+            requestQueue.addRequest(request);
         }
     }
 
     public Iterator<TicketRequest> getAllQueuedRequests() {
-        return ticketRequests.iterator();
-    }
-
-    public TicketRequest checkNextRequest() {
-        return ticketRequests.peek();
+        return requestQueue.getRequestIterator();
     }
 
     public TicketRequest removeNextRequest() {
         TicketRequest retVal;
         try {
-             retVal = ticketRequests.remove();
+             retVal = requestQueue.removeNextRequest();
         }
         catch (NoSuchElementException e) {
             System.out.println("There are no more ticket requests");
+            e.printStackTrace();
             return null;
         }
         return retVal;

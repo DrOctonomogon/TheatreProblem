@@ -7,7 +7,7 @@ public class TheatreLayout {
 
     List<SeatRow> seatingLayout;
 
-    TheatreLayout() {
+    public TheatreLayout() {
         seatingLayout = new ArrayList<SeatRow>();
     }
 

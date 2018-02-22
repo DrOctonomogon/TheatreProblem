@@ -7,7 +7,7 @@ public class SeatRow {
 
     private List<SeatSection> sections;
 
-    SeatRow() {
+    public SeatRow() {
         this.sections = new ArrayList<SeatSection>();
     }
 

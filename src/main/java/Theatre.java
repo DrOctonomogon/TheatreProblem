@@ -15,45 +15,45 @@ public class Theatre {
         return this.ticketRequests;
     }
 
-    // Parse input
-    public static String[] splitInputIntoRows(String input) {
-        return input.split("\n");
-    }
+//    // Parse input
+//    public static String[] splitInputIntoRows(String input) {
+//        return input.split("\n");
+//    }
 
-    // Generate theatre layout
-    public void generateTheatreLayout(String[] input) {
+//    // Generate theatre layout
+//    public void generateTheatreLayout(String[] input) {
+//
+//        Integer rowCount = input.length;
+//        Integer[][] seats = new Integer[rowCount][];
+//
+//        for(int i = 0; i < rowCount; i++) {
+//            String[] splitRowSections = input[i].split(" ");
+//            seats[i] = new Integer[splitRowSections.length];
+//            for(int j = 0; j <= splitRowSections.length - 1; j++) {
+//                Integer seatsInSection = Integer.parseInt(splitRowSections[j]);
+//                seats[i][j] = seatsInSection;
+//                availableSeatsRemaining += seatsInSection;
+//            }
+//        }
+//
+//        this.theatreLayout = seats;
+//    }
 
-        Integer rowCount = input.length;
-        Integer[][] seats = new Integer[rowCount][];
+//    // Get number of rows in theatre
+//    public static Integer getNumberOfRowsInTheatre(String[] input) {
+//
+//        Integer rowCount = 0;
+//
+//        while(!input[rowCount].equals("")) {
+//            rowCount ++;
+//        }
+//        return rowCount;
+//    }
 
-        for(int i = 0; i < rowCount; i++) {
-            String[] splitRowSections = input[i].split(" ");
-            seats[i] = new Integer[splitRowSections.length];
-            for(int j = 0; j <= splitRowSections.length - 1; j++) {
-                Integer seatsInSection = Integer.parseInt(splitRowSections[j]);
-                seats[i][j] = seatsInSection;
-                availableSeatsRemaining += seatsInSection;
-            }
-        }
-
-        this.theatreLayout = seats;
-    }
-
-    // Get number of rows in theatre
-    public static Integer getNumberOfRowsInTheatre(String[] input) {
-
-        Integer rowCount = 0;
-
-        while(!input[rowCount].equals("")) {
-            rowCount ++;
-        }
-        return rowCount;
-    }
-
-    // Get remaining seats
-    public Integer getAvailableSeatsRemaining() {
-        return this.availableSeatsRemaining;
-    }
+//    // Get remaining seats
+//    public Integer getAvailableSeatsRemaining() {
+//        return this.availableSeatsRemaining;
+//    }
 
     // Generate ticket request list
     public void generateTicketRequestList(String[] input) {

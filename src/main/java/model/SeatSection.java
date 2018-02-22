@@ -5,7 +5,7 @@ public class SeatSection {
     private Integer capacity;
     private Integer availableSeats;
 
-    SeatSection(Integer capacity) {
+    public SeatSection(Integer capacity) {
         this.capacity = capacity;
         this.availableSeats = capacity;
     }
